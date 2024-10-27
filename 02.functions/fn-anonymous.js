@@ -1,9 +1,9 @@
-//an anonymous fn is a function without a name
+// An anonymous function is a function without a name.
 (function greet() {
-  console.log("hello ashutosh");
-});//to invoke this we need to make it iife
+  console.log("hello ashutosh"); // Outputs greeting
+});
 
-//settimeout also takes a function which is anonymous in nature
+// setTimeout takes an anonymous function as its first argument.
 setTimeout(() => {
-  console.log("settimeout was invoked");
+  console.log("setTimeout was invoked"); // Outputs message after 2 seconds
 }, 2000);
