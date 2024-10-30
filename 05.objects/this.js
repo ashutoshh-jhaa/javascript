@@ -111,26 +111,23 @@ getBrand.call(honda, "It's a "); // Outputs: "It's a Honda"
 getBrand.call(audi, "It's an "); // Outputs: "It's an Audi"
 
 /* SECTION 7: Arrow Functions */
-//the arrow function does not create it's own context but js sets the
-//"this" lexically meaning arrow function does not create it's own
-//execution context but inherits 'this' from outer functionw where
-//the arrow function is defined
 
-let getThis = () => this;
-console.log(getThis() === window);
-//since arrow fn does not create its own execution context defining
-//a method using arrow function will cause an issue
-// for example
+// Arrow functions do not create their own context.
+// Instead, they inherit 'this' lexically from the surrounding function.
+
+let getGlobalThis = () => this; // Arrow function to check global context
+console.log(getGlobalThis() === window); // true in non-strict mode
+
+// Defining a constructor function for a Car object
 function Car() {
-  this.speed = 120;
+  this.speed = 120; // 'speed' property on the Car instance
 }
 
+// Arrow function for the getSpeed method
 Car.prototype.getSpeed = () => {
-  return this.speed;
+  return this.speed; // 'this' refers to the global object, not the Car instance
 };
 
-var car = new Car();
-console.log(car.getSpeed());
-//inside the getSpeed method the this value references the global
-//object no the car object but the global object does't have teh prppet
-//called speed therefor the this .speed n the getspeed method return unedfind
+// Creating a new instance of Car
+var carInstance = new Car(); // Instance of Car
+console.log(carInstance.getSpeed()); // undefined, because 'this.speed' is not defined in the global object
