@@ -45,5 +45,5 @@ let person = PersonAuto("John", "Doe");
 // Logging the first name of the created person
 console.log(person.firstName);
 
-//class keyword was introduced in es6 
-class Newname{}
+//class keyword was introduced in es6
+class Newname {} //for more clarity
