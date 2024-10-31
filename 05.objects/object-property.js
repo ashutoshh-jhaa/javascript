@@ -87,3 +87,40 @@ Object.defineProperty(person, "fullName", {
 
 // Access the accessor property `fullName`
 console.log(person.fullName); // Outputs the full name as "firstName lastName"
+
+/* SECTION 3: Defining multiple properties */
+// We can define multiple properties at once using Object.defineProperties()
+
+var products = {};
+Object.defineProperties(products, {
+  name: {
+    value: "smartphone", // Setting the product name
+  },
+  price: {
+    value: 599, // Setting the product price
+  },
+  tax: {
+    value: 0.42, // Setting the tax rate for the product
+  },
+  netPrice: {
+    get: function () {
+      return this.price * (1 + this.tax); // Calculating net price including tax
+    },
+  },
+});
+
+console.log(
+  `The net price of ${products.name} is ${products.netPrice.toFixed(2)} Rupee`,
+); // Output: "The net price of smartphone is 850.58 Rupee"
+
+/* SECTION 4: Get Property Descriptor */
+/* The `Object.getOwnPropertyDescriptor()` method retrieves the property descriptor for a specific property of an object.
+ * This method takes two arguments:
+ *   1. The object to query.
+ *   2. The name of the property to inspect.
+ * It returns the property's descriptor, which includes attributes like `configurable`, `enumerable`, `writable`, and `value`. */
+
+let descriptor = Object.getOwnPropertyDescriptor(products, "name");
+
+// Logs all the attributes of the "name" property in the "products" object
+console.log(descriptor);
