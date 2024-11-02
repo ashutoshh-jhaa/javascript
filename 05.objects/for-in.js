@@ -34,3 +34,28 @@ for (const key in circle) {
     // Example: if "color: 'red'" is inherited, it won’t be logged here.
   }
 }
+
+// The `for...in` loop works well for objects but is not recommended for arrays.
+// This is because `for...in` iterates over all enumerable properties, including those on the prototype chain.
+// For example, someone may add properties to the array's prototype as follows:
+
+Array.prototype.foo = 100;
+
+const items = [10, 20, 30, 40];
+let total = 0;
+
+for (const index in items) {
+  console.log({
+    index,
+    value: items[index],
+  });
+  total += items[index];
+}
+console.log(total);
+
+// The loop also iterates over the `foo` property on the array’s prototype chain,
+// causing issues in calculations or unexpected outputs.
+// The `for...in` loop includes all enumerable properties, so when it reaches the prototype chain,
+// it treats `foo` as if it’s part of the array, even though it’s not an actual array element.
+// This leads to the problem because `index` becomes `foo` during one of the loop iterations,
+// which is incorrect behavior when processing arrays.
