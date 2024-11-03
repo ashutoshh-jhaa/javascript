@@ -15,7 +15,7 @@ class Person {
 let ash = new Person("Ashutosh Jha");
 console.log(typeof Person); //function
 console.log(ash instanceof Person); //true
-console.log(ash instanceof Object); //true 
+console.log(ash instanceof Object); //true
 
 //section 2: class vs custom type
 //first : class declarations are not hoisted like function declarations
