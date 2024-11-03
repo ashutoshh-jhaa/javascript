@@ -1,56 +1,59 @@
-//naming same properties
-//before
+// Naming the same properties using concise syntax
+// Before: Properties need to be explicitly named with the variable name
 function createMachine(name, status) {
   return {
     name: name,
     status: status,
   };
 }
-//after
+
+// After: Properties can be defined with concise syntax
 function createMachine1(name, status) {
   return {
-    name,
-    status,
+    name, // Assigns name to the property 'name'
+    status, // Assigns status to the property 'status'
   };
 }
 
-//construct an object literal from local variables
-let name1='ashutosh'
-let person1={
-  name1;//assigns 'ashutosh' to name1 inside of object
-}
+// Constructing an object literal from local variables
+let name1 = "ashutosh";
+let person1 = {
+  name1, // Assigns 'ashutosh' to name1 inside the object
+};
 
-//computed property name
-//before
-/* let mName='rog strix'
-let machine={
-  [name]:'server',
-  'machine hours':1000,
-}
-console.log(machine[name])//rog strix
-console.log(machine['machine hours'])//1000 */
+// Computed property names
+// Before: Using variable names to dynamically create property names
+let mName = "rog strix";
+let machine = {
+  [mName]: "server", // The value of mName becomes the property key
+  "machine hours": 1000,
+};
+console.log(machine[mName]); // Outputs: 'server'
+console.log(machine["machine hours"]); // Outputs: 1000
 
-//after
-let prefix='machine'
-let machine1={
-  [prefix+' name']:'server',
-  [prefix+' hours']:100
-}
-//consice method syntax 
-//before
-let server={
-  name:'server',
-  restart:function(){
-    return true
-  }
-}
-//after
-let server1={
-  name:'anyname',
-  restart(){
-    return true
+// After: Creating dynamic property names with a prefix
+let prefix = "machine";
+let machine1 = {
+  [prefix + " name"]: "server", // Dynamically creates property key 'machine name'
+  [prefix + " hours"]: 100, // Dynamically creates property key 'machine hours'
+};
+
+// Concise method syntax
+// Before: Method definitions require a function keyword
+let server = {
+  name: "server",
+  restart: function () {
+    return true;
   },
-  'name with white space'(){
-    return false
-  }
-}
+};
+
+// After: Methods can be defined more concisely
+let server1 = {
+  name: "anyname",
+  restart() {
+    return true; // Concise method definition without 'function' keyword
+  },
+  "name with white space"() {
+    return false; // Method name with spaces defined concisely
+  },
+};
