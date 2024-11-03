@@ -42,8 +42,8 @@ let file = {
     return "file content"; // Returns the content of the file
   },
   write(content) {
-    console.log(`writing ${content} to file`); 
-    return true; 
+    console.log(`writing ${content} to file`);
+    return true;
   },
 };
 
