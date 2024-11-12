@@ -1,19 +1,20 @@
-/* dynamic import in js allows you to import modules on demand rather than at the start of 
-the script this feature was introduced with ES2020 provides the flexibility to load code 
-conditionally or asynchronously. 
+/* Dynamic import in JavaScript enables importing modules on demand, rather than at the 
+beginning of the script. This feature, introduced in ES2020, offers flexibility by allowing 
+conditional or asynchronous loading of code.
 
-dynamic import uses import() function *which returns a promise* this is different from 
-standard imports which are statically loaded at the top of the file and are synchronous in nature
-*/
+The dynamic import syntax, `import()`, returns a Promise. This differs from standard imports, 
+which are synchronous and loaded statically at the top of a file. Dynamic imports allow 
+loading only when required, which can improve performance, especially in larger applications. */
 
-//using dynamic import to load a module only when the function loadModule is called
+// Using dynamic import to load a module only when `loadModule` is called.
 async function loadModule() {
   try {
-    const module = await import(".module.js");
-    module.someFucntion(); //access the imported module's properties
+    const module = await import("./module.js"); // Importing the module dynamically
+    module.someFunction(); // Accessing properties or functions from the imported module
   } catch (error) {
-    console.error("failed to load the module", error);
+    console.error("Failed to load the module:", error); // Handling errors in case of load failure
   }
 }
-//the module will load only when the function is called
+
+// The module will load only when `loadModule()` is called
 loadModule();
