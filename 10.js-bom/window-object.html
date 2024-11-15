@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+  </head>
+  <body>
+    <div class="emptyDiv">hello world !</div>
+  </body>
+  <script>
+    // Get the window size
+    function windowSize() {
+      // Full width and height of the browser window, including toolbars and borders
+      console.log(window.outerWidth); // Logs the total width of the window
+      console.log(window.outerHeight); // Logs the total height of the window
+
+      // Width and height of the content area, excluding toolbars, scrollbars, etc.
+      console.log(window.innerWidth); // Logs the inner width (content area only)
+      console.log(window.innerHeight); // Logs the inner height (content area only)
+    }
+
+    // Open a new window with specific settings
+    function windowOpen() {
+      let oldUrl = "google.com"; // Interpreted as a relative URL; tries to find it within the current domain
+      let newUrl = "https://google.com"; // Opens Google as an absolute URL
+
+      // Opens a new window with specified URL and window properties
+      window.open(newUrl, "_blank", "width=500,height=400,scrollbars=yes");
+
+      // Parameters:
+      // url: Absolute or relative URL to open
+      // target: "_blank" opens in a new tab/window
+      // features: Window properties (e.g., width, height, scrollbars)
+      // replace: If true, replaces current history entry with new URL (default is false)
+    }
+
+    // Resize the window to specific dimensions
+    function resizeWindow() {
+      window.resizeTo(400, 200); // Resizes the window to 400px width and 200px height
+    }
+
+    // Move the window to specified screen coordinates
+    function moveWindow() {
+      let x = 102,
+        y = -422;
+      window.moveTo(x, y); // Moves the window to (x=2, y=4) on the screen
+    }
+
+    // These functions may have no effect due to browser security restrictions
+    moveWindow();
+    resizeWindow();
+  </script>
+</html>
