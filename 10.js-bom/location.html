@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Location object in JavaScript</title>
+  </head>
+  <body>
+    <script>
+      // LOCATION OBJECT
+      // Provides detailed information about the current URL and allows manipulation of the browser's location
+      function testLocationObject() {
+        console.log(window.location); // Logs the full location object with detailed URL information
+        console.log(location.href); // Logs the entire URL as a string
+        console.log(location.protocol); // Logs the protocol (e.g., 'https:')
+        console.log(location.host); // Logs the host (domain name + port, if specified)
+        console.log(location.port); // Logs the port number, if specified
+        console.log(location.pathname); // Logs the path following the domain, starting with '/'
+        console.log(location.search); // Logs the query string (parameters) starting with '?'
+        console.log(location.origin); // Logs the origin (protocol + host) of the location
+      }
+
+      // MANIPULATING THE LOCATION
+
+      // assign() - Navigates to a new URL and adds an entry to the browser's history stack
+      // Setting window.location or location.href also implicitly calls assign()
+      function assignLocation() {
+        location.assign("https://google.com");
+      }
+
+      // replace() - Navigates to a new URL without adding an entry to the browser's history stack
+      function replaceLocation() {
+        location.replace("https://amazon.in"); // May behave differently across browsers;
+        // intended to replace the current history entry without adding a new one
+      }
+
+      // reload() - Reloads the current page
+      function reloadPage() {
+        location.reload(); // Reloads from cache if resources haven't changed
+        location.reload(true); // Forces reload from the server
+      }
+    </script>
+  </body>
+</html>
