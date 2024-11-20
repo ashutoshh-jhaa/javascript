@@ -3,21 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>get element by id</title>
+    <title>Get Element By ID</title>
   </head>
   <body>
     <div id="divOne">
       <div class="innerDiv"></div>
     </div>
     <script>
+      // Select the element with ID "divOne"
       const divOne = document.getElementById("divOne");
+
+      // Update its text content
       divOne.textContent = "ashutosh";
+
+      // Log the element and its text content
       console.log(divOne);
       console.log(divOne.textContent);
 
-      //please note that the getElementById only works with document object
-      //so this won't work as accepted 
-      const innerDiv = 
+      // Note: getElementById() only works on the document object.
+      // The following will not work as expected:
+      // const innerDiv = divOne.getElementById("innerDiv"); // This is invalid.
     </script>
   </body>
 </html>
