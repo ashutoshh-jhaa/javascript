@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>History in JavaScript</title>
+  </head>
+  <body>
+    <script>
+      // Go back one step in the browser's history
+      function goBackInHistory() {
+        history.back();
+      }
+
+      // Go forward one step in the browser's history
+      function goForwardInHistory() {
+        history.forward();
+      }
+
+      // Navigate through the browser's history
+      function moveForwardBackInHistory() {
+        history.go(); // Refreshes the current page (equivalent to go(0))
+        history.go(1); // Moves forward one entry in history
+        history.go(-1); // Moves back one entry in history
+      }
+    </script>
+  </body>
+</html>
