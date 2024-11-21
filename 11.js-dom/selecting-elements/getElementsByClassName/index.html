@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>getElementsByClassName Demo</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul id="main">
+        <li class="item">value1</li>
+        <li class="item">value2</li>
+        <li class="item">value3</li>
+        <li class="item">value4</li>
+        <li class="item">value5</li>
+      </ul>
+    </nav>
+    <h1>getElementsByClassName Demo</h1>
+  </header>
+  <section>
+    <article>
+      <h2 class="secondary">example1</h2>
+    </article>
+    <article>
+      <h2 class="secondary">example2</h2>
+    </article>
+  </section>
+  <script>
+    // Get the menu element by its ID
+    let menu = document.getElementById('main');
+
+    // Get all elements with the class 'item' within the menu
+    let items = menu.getElementsByClassName('item');
+
+    // Iterate over each element in the collection and log its text content
+    for (const element of items) {
+      console.log(element.innerText);
+    }
+  </script>
+</body>
+
+</html>
