@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>querySelector</title>
+</head>
+
+<body>
+  <header>
+    <div id="logo"><img src="" alt="" id="logo"></div>
+    <nav class="primary-nav">
+      <ul>
+        <li class="menu-item"><a href="">title1</a></li>
+        <li class="menu-item"><a href="">title2</a></li>
+        <li class="menu-item"><a href="">title3</a></li>
+        <li class="menu-item"><a href="">title4</a></li>
+        <li class="menu-item"><a href="">title5</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>welcome to the js dev agency</h1>
+    <div class="container">
+      <section class="section-a">
+        <h2>ui/ux</h2>
+        <p>lorem ispum 1</p>
+        <button>Read More</button>
+      </section>
+      <section class="section-b">
+        <h2>pwa development</h2>
+        <p>lorem ipsum 2</p>
+        <button>Read more</button>
+      </section>
+      <section class="section-c">
+        <h2>mobile app dev</h2>
+        <p>lorem ipsum 3</p>
+        <button>Read More</button>
+      </section>
+    </div>
+  </main>
+  <script>
+    // SECTION 1: Universal selector
+
+    // Selects the very first element in the document (html)
+    let element = document.querySelector('*')
+    console.log(element)
+
+    // Selects all elements in the document, returns a NodeList
+    let allElements = document.querySelectorAll('*')
+    console.log(allElements)
+
+    // SECTION 2: Class selector
+
+    // Finds the very first element with the class 'menu-item'
+    let note = document.querySelector('.menu-item')
+    console.log(note)
+
+    // Gets all elements with the class 'menu-item', returns a NodeList
+    let notes = document.querySelectorAll('.menu-item')
+    console.log(notes)
+
+    // SECTION 3: Type selector
+
+    // Gets the first <h1> element
+    let firstHeading = document.querySelector('h1')
+    console.log(firstHeading)
+
+    // Gets all <h2> elements, returns a NodeList
+    let heading2 = document.querySelectorAll('h2')
+    console.log(heading2)
+
+    // SECTION 4: Id selector
+
+    // Gets the first element with the id 'logo'
+    let logo = document.querySelector('#logo')
+    console.log(logo)
+
+    // SECTION 5: Attribute selectors
+
+    // Selects the first <a> element with a specific attribute (e.g., href)
+    let link = document.querySelector('a[href]')
+    console.log(link)
+
+    // Selects all <a> elements with a 'href' attribute
+    let links = document.querySelectorAll('a[href]')
+    console.log(links)
+
+    // Selects all elements with a 'name' attribute of 'list'
+    let namedItems = document.querySelectorAll('[name="list"]')
+    console.log(namedItems)
+
+    // SECTION 6: Group selectors
+
+    // Selects all <h2> and <h1> elements in the document
+    let headings = document.querySelectorAll('h1, h2')
+    console.log(headings)
+
+    // SECTION 7: Combinators (descendant combinator)
+
+    // Selects all <p> elements inside <section> elements (descendant)
+    let paragraphs = document.querySelectorAll('section p')
+    console.log(paragraphs)
+
+    // SECTION 8: Child combinators
+
+    // Selects only the <h2> elements that are direct children of <section>
+    let sectionHeadings = document.querySelectorAll('section > h2')
+    console.log(sectionHeadings)
+
+    // SECTION 9: General sibling combinator (~)
+
+    // Selects all <p> elements that are siblings of <h2> elements
+    let siblingParagraphs = document.querySelectorAll('h2 ~ p')
+    console.log(siblingParagraphs)
+
+    // SECTION 10: Adjacent sibling combinator (+)
+
+    // Selects the <h2> element that immediately follows a <h1>
+    let nextHeading = document.querySelector('h1 + h2')
+    console.log(nextHeading)
+
+  </script>
+</body>
+
+</html>
