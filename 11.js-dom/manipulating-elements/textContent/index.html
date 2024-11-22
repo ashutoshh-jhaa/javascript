@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>textContent vs innerText</title>
+</head>
+
+<body>
+  <!-- Div element containing text and a hidden span -->
+  <div class="note">
+    javascript textContent demo
+    <span style="display:none">hidden text</span>
+  </div>
+
+  <script>
+    // SECTION 1: DIFFERENCE BETWEEN textContent AND innerText
+
+    let note = document.querySelector('.note');
+
+    // Logs the text content of the element, including hidden elements
+    console.log(note.textContent);
+
+    // Logs the text content but respects CSS styles (e.g., "display: none")
+    console.log(note.innerText);
+    // The span with "hidden text" is ignored because it has "display: none" in CSS.
+
+    // NOTE:
+    // TextContent returns the raw text of the element, including hidden elements.
+    // InnerText considers the rendered CSS and excludes hidden text.
+    // Accessing innerText is computationally expensive as it forces the browser
+    // to calculate the up-to-date CSS styles (a process called reflow).
+
+    // SECTION 2: SETTING textContent
+
+    // Replaces all content (including child elements) with new text
+    note.textContent = 'newtext';
+    // After this, the content of the .note div will be replaced with 'newtext',
+    // and all child elements will be removed.
+  </script>
+</body>
+
+</html>
