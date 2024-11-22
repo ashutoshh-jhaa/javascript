@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Append Child Example</title>
+</head>
+
+<body>
+  <!-- Empty list where items will be appended -->
+  <ul id="menu"></ul>
+
+  <!-- Lists for demonstrating node movement -->
+  <ul id="first-list">
+    <li>firstValue1</li>
+    <li>firstValue2</li>
+    <li>firstValue3</li>
+    <li>firstValue4</li>
+    <li>firstValue5</li>
+  </ul>
+  <ul id="second-list">
+    <li>secondValue1</li>
+    <li>secondValue2</li>
+    <li>secondValue3</li>
+    <li>secondValue4</li>
+    <li>secondValue5</li>
+  </ul>
+
+  <script>
+    // SECTION 1: FUNCTION TO CREATE A NEW LIST ITEM
+    /**
+     * Creates a new <li> element with the given name as its text content.
+     * @param {string} name - The text content for the new list item.
+     * @returns {HTMLElement} - A new <li> element.
+     */
+    function createMenuItem(name) {
+      let li = document.createElement('li'); // Create a <li> element
+      li.textContent = name;
+      return li;
+    }
+
+    // SECTION 2: APPEND ITEMS TO THE MENU LIST
+    let menu = document.querySelector("#menu"); // Select the #menu element
+
+    // Appends new list items to the #menu
+    menu.appendChild(createMenuItem('apple')); // Adds 'apple' to the menu
+    menu.appendChild(createMenuItem('mango')); // Adds 'mango' to the menu
+    menu.appendChild(createMenuItem('guava')); // Adds 'guava' to the menu
+
+    // SECTION 3: MOVE A NODE FROM ONE LIST TO ANOTHER
+    const firstList = document.querySelector("#first-list"); // Select the #first-list element
+    const firstListFirstElement = firstList.firstElementChild; // Get the first <li> element of #first-list
+    const secondList = document.querySelector('#second-list'); // Select the #second-list element
+
+    // Moves the first <li> from #first-list to #second-list
+    secondList.appendChild(firstListFirstElement);
+  </script>
+</body>
+
+</html>
