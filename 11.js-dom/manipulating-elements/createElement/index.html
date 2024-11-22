@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Elements with JavaScript</title>
+</head>
+
+<body>
+
+  <script>
+    // SECTION 1: CREATE A NEW DIV ELEMENT
+    // Creates a new <div> element
+    let div = document.createElement('div');
+
+    // Adds an ID to the created <div> element
+    div.id = 'content';
+
+    // Adds a class name to the created <div> element
+    div.className = 'note';
+
+    // Adds inner text to the <div> element
+    div.innerText = 'Hey there, Ashutosh';
+
+
+    // SECTION 2: APPEND A TEXT NODE TO THE DIV
+    // Creates a text node
+    let text = document.createTextNode(' - CreateElement example');
+
+    // Appends the text node to the <div>
+    div.appendChild(text);
+
+    // Appends the created <div> to the <body> of the document
+    document.body.appendChild(div);
+
+
+    // SECTION 3: APPEND AN <h2> ELEMENT TO THE DIV
+    // Creates a new <h2> element
+    let h2 = document.createElement('h2');
+
+    // Sets the text content for the <h2> element
+    h2.textContent = 'This is an H2 heading';
+
+    // Appends the <h2> element as a child of the <div>
+    div.appendChild(h2);
+
+
+    // SECTION 4: DYNAMICALLY LOAD A SCRIPT FILE
+    // Creates a <script> element
+    let script = document.createElement('script');
+
+    // Sets the source of the script to an external file
+    script.src = '/lib.js';
+
+    // Appends the <script> element to the <body>
+    document.body.appendChild(script);
+  </script>
+</body>
+
+</html>
