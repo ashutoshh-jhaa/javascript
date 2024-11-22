@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Child Elements</title>
+</head>
+
+<body>
+  <ul id="menu">
+    <li class="first">value1</li>
+    <li>value2</li>
+    <li>value3</li>
+    <li>value4</li>
+    <li class="current">value5</li>
+    <li>value6</li>
+    <li>value7</li>
+    <li>value8</li>
+    <li class="last">value9</li>
+  </ul>
+
+  <script>
+    // Select the parent element (ul element with id 'menu')
+    let parentElement = document.querySelector('#menu');
+
+    // SECTION 1: FIRST AND LAST CHILD NODES
+    // 'firstChild' and 'lastChild' return any node type (element, text, or comment)
+    console.log(parentElement.firstChild); // Logs the first child (might be text due to whitespace)
+    console.log(parentElement.lastChild);  // Logs the last child (might be text due to whitespace)
+
+    // 'firstElementChild' and 'lastElementChild' return only element nodes
+    console.log(parentElement.firstElementChild); // Logs the first <li> element (value1)
+    console.log(parentElement.lastElementChild);  // Logs the last <li> element (value9)
+
+    // SECTION 2: GET ALL CHILDREN
+    // 'childNodes' returns a NodeList of all child nodes (including text, comments, and elements)
+    console.log(parentElement.childNodes); // Logs all child nodes (text nodes included)
+
+    // 'children' returns an HTMLCollection of only child elements
+    console.log(parentElement.children);   // Logs all <li> elements inside the parent <ul>
+
+    // SECTION 3: ITERATE OVER CHILDREN
+    // Loop through 'children' to log each <li> element
+    Array.from(parentElement.children).forEach(child => {
+      console.log(child); // Logs each <li> element
+    });
+
+    // Loop through 'childNodes' to log all node types
+    parentElement.childNodes.forEach(node => {
+      console.log(`Node type: ${node.nodeType}, Node value: ${node.nodeValue}`);
+    });
+  </script>
+</body>
+
+</html>
