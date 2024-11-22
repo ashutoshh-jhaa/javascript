@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sibling Selectors</title>
+</head>
+
+<body>
+  <ul id="menu">
+    <li>value1</li>
+    <li>value2</li>
+    <li>value3</li>
+    <li class="current">value4</li>
+    <li>value5</li>
+    <li>value6</li>
+    <li>value7</li>
+    <li>value8</li>
+    <li>value9</li>
+  </ul>
+  <script>
+    // SECTION: NEXT SIBLINGS
+    let current = document.querySelector('.current'); // Select the element with the "current" class
+    let nextSibling = current.nextElementSibling; // Get the next sibling element
+    console.log(nextSibling); // Logs the next sibling (value5)
+
+    // Get all next siblings of the current element
+    while (nextSibling) {
+      console.log(nextSibling); // Logs each next sibling
+      nextSibling = nextSibling.nextElementSibling; // Move to the next sibling
+    }
+
+    // SECTION: PREVIOUS SIBLINGS
+    let previousSibling = current.previousElementSibling; // Get the previous sibling element
+    console.log(previousSibling); // Logs the previous sibling (value3)
+
+    // Get all previous siblings of the current element
+    while (previousSibling) {
+      console.log(previousSibling); // Logs each previous sibling
+      previousSibling = previousSibling.previousElementSibling; // Move to the previous sibling
+    }
+
+    // SECTION: GET ALL SIBLINGS
+    let getSiblings = function (e) {
+      let siblings = [];
+
+      // Check if the parent node of the element exists
+      if (!e.parentNode) {
+        return siblings; // Return an empty array if no parent exists
+      }
+
+      let sibling = e.parentNode.firstChild; // Start with the first child of the parent node
+
+      // Loop through all siblings
+      while (sibling) {
+        // Check if the sibling is an element node and is not the current element
+        if (sibling.nodeType === 1 && sibling !== e) {
+          siblings.push(sibling); // Add the sibling to the array
+        }
+        sibling = sibling.nextSibling; // Move to the next sibling
+      }
+
+      return siblings;
+    };
+
+    console.log(getSiblings(current)); 
+  </script>
+</body>
+
+</html>
