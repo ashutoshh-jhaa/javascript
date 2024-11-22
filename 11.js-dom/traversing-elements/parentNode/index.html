@@ -1,0 +1,25 @@
+<!--
+to get the parent node of the specified node in dom tree you use the parentNode property
+--->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>parentNode</title>
+</head>
+
+<body>
+  <div id="main">
+    <p class="note">This is a note</p>
+    <a href="https://google.com">google.com</a>
+  </div>
+
+  <script>
+    let node = document.querySelector('.note')
+    console.log(node.parentNode)
+  </script>
+</body>
+
+</html>
