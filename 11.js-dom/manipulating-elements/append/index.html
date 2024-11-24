@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>append</title>
+</head>
+
+<body>
+
+  <ul id="app">
+    <li>javascript</li>
+  </ul>
+
+  <script>
+    /*
+      The append() method inserts a set of DOM nodes or DOMString objects
+      after the last child of the parent node.
+      It can accept both nodes (e.g., elements) and DOM strings (e.g., text).
+    */
+
+    // Select the parent element to append to
+    let app = document.querySelector('#app');
+
+    // Array of languages to add as list items
+    let langs = ['typescript', 'html', 'css'];
+
+    // Map over the array to create <li> elements for each language
+    let nodes = langs.map((lang) => {
+      let li = document.createElement('li');
+      li.textContent = lang;  // Set the text content of each <li>
+      return li;
+    });
+
+    console.log(nodes);  // Logs the created <li> elements
+
+    // Append all created <li> elements to the parent <ul>
+    app.append(...nodes);
+
+    // Append a string directly to the parent (not as a child element)
+    app.append('append() text demo'); // Adds plain text at the end of the <ul>
+
+  </script>
+</body>
+
+</html>
