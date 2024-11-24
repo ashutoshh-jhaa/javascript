@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>get Attributes</title>
+</head>
+
+<body>
+  <button id="btnSend" class="btnOne" name="send" data-info="extra-data">Send Request</button>
+
+  <script>
+    // Select the button element using the class selector
+    let btn = document.querySelector('.btnOne');
+
+    // Use getAttribute to retrieve specific attribute values
+    console.log(btn.getAttribute('name')); // Logs: 'send'
+    console.log(btn.getAttribute('id')); // Logs: 'btnSend'
+    console.log(btn.getAttribute('data-info')); // Logs: 'extra-data'
+
+    // Retrieve all attributes of the button
+    console.log(btn.attributes); // Logs a NamedNodeMap of all attributes
+
+    // Iterate over all attributes to log their names and values
+    for (let attr of btn.attributes) {
+      console.log(`${attr.name}: ${attr.value}`);
+    }
+  </script>
+</body>
+
+</html>

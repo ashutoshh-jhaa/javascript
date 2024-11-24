@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>setAttribute</title>
+</head>
+
+<body>
+  <button class="btnOne" id="btnSend">send Data</button>
+
+  <script>
+    // Select the button element by its ID
+    let btn = document.querySelector('#btnSend');
+
+    btn.setAttribute('name', 'send'); // Adds name="send" to the button
+    btn.setAttribute('disabled', ''); // Adds disabled="" making the button non-clickable
+
+    // You can use setAttribute to update existing attributes or add new ones
+    // Example: Change the button text using "aria-label" for accessibility
+    btn.setAttribute('aria-label', 'Send Data Button');
+  </script>
+</body>
+
+</html>
