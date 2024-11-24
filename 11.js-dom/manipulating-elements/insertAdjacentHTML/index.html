@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>insertAdjacentHTML</title>
+</head>
+
+<body>
+  <ul id="list">
+    <li>CSS</li>
+  </ul>
+
+  <script>
+    /**
+     * insertAdjacentHTML(positionName, text)
+     * - Allows you to insert HTML content at specific positions relative to an element.
+     * 
+     * positionName accepts four values:
+     * 1. `beforebegin` - Inserts content just before the parent element.
+     * 2. `afterbegin`  - Inserts content as the first child of the parent element.
+     * 3. `beforeend`   - Inserts content as the last child of the parent element.
+     * 4. `afterend`    - Inserts content just after the parent element.
+     * 
+     * text: A string containing the HTML or XML that will be parsed. This method does not accept node objects.
+     */
+
+    let list = document.querySelector('#list');
+
+    // Insert an <h2> before the <ul> element
+    list.insertAdjacentHTML('beforebegin', '<h2>Web Technology</h2>');
+
+    // Insert an <li> at the start of the <ul>
+    list.insertAdjacentHTML('afterbegin', '<li>HTML</li>');
+
+    // Insert an <li> at the end of the <ul>
+    list.insertAdjacentHTML('beforeend', '<li>JavaScript</li>');
+
+    // Insert a <p> after the <ul> element
+    list.insertAdjacentHTML('afterend', '<p>For Frontend Developers</p>');
+  </script>
+</body>
+
+</html>
