@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cloneNode()</title>
+</head>
+
+<body>
+  <ul id="menu">
+    <li>value1
+      <ol>
+        <li>ordered1</li>
+      </ol>
+    </li>
+    <li>value2</li>
+    <li>value3</li>
+    <li>value4</li>
+    <li>value5</li>
+  </ul>
+
+  <script>
+    // Select the original menu element
+    let menu = document.querySelector('#menu');
+
+    /**
+     * cloneNode() - Creates a copy of the node.
+     * - cloneNode(false) - Creates a shallow copy, copying only the element itself.
+     * - cloneNode(true) - Creates a deep copy, copying the element and all of its descendants.
+     */
+    let clonedList = menu.cloneNode(true); // Set to true to copy all descendants
+    clonedList.id = 'menu-clone'; // Assign a new ID to the cloned element
+
+    // Append the cloned list to the document body
+    document.body.appendChild(clonedList);
+  </script>
+</body>
+
+</html>
