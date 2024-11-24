@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>createElement vs innerHTML</title>
+</head>
+
+<body>
+
+  <div id="main">This is a div</div>
+
+  <script>
+    /**
+     * Comparison of createElement and innerHTML:
+     * - `createElement` is more **performant** than `innerHTML`, especially for frequent updates.
+     * - `innerHTML` causes the browser to reparse and recreate all DOM nodes inside the element,
+     *   which can be inefficient for larger or complex updates.
+     */
+
+    let div = document.querySelector('#main');
+
+    // Example of using innerHTML (less efficient)
+    div.innerHTML += '<p>Child element</p>';
+
+    // Example of using createElement (more efficient for dynamic content)
+    let p = document.createElement('p');
+    p.innerText = 'Ashutosh';
+    div.appendChild(p);
+
+    /**
+     * Using DocumentFragment for efficient DOM updates:
+     * - Adding elements to the DOM individually can trigger recalculation of styles, layout,
+     *   and painting for each addition, which is inefficient.
+     * - `DocumentFragment` allows you to compose multiple DOM nodes in memory and append them
+     *   to the DOM in a single operation, reducing performance overhead.
+     */
+
+    // Inefficient way: Directly appending elements to the DOM in a loop
+    /*
+    for (let i = 0; i < 6; i++) {
+      p = document.createElement('p');
+      p.innerText = `Value ${i}`;
+      div.appendChild(p); // Triggers recalculations for each iteration
+    }
+    */
+
+    // Efficient way: Using DocumentFragment for batch DOM updates
+    let fragment = document.createDocumentFragment(); // Create a DocumentFragment
+    for (let i = 0; i < 6; i++) {
+      let p = document.createElement('p');
+      p.innerText = `Value ${i}`;
+      fragment.appendChild(p); // Append the <p> to the fragment
+    }
+    div.appendChild(fragment); // Append the fragment to the DOM in one operation
+  </script>
+
+</body>
+
+</html>
