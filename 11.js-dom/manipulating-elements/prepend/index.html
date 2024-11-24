@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>prepend method</title>
+</head>
+
+<body>
+
+  <ul id="languages">
+    <li>JavaScript</li>
+  </ul>
+
+  <script>
+    // Prepend adds nodes or DOMStrings before the first child of the parent node
+    // parentNode.prepend(...nodes)
+    // parentNode.prepend(...DOMStrings)
+
+    let ul = document.querySelector('#languages')
+
+    // Example 1: Prepending DOM nodes (creating new <li> elements)
+    let langs = ['HTML', 'CSS', 'Python']
+    let nodes = langs.map((lang) => {
+      let li = document.createElement('li')
+      li.textContent = lang
+      return li
+    })
+    ul.prepend(...nodes)  // Prepend nodes to the list
+
+    // Example 2: Prepending a DOMString (plain text)
+    ul.prepend('This is a DOMString prepend example')
+
+    // Example 3: Prepending HTML string (will be treated as plain text)
+    ul.prepend('<strong>Prepend HTML as string</strong>') // This will be treated as plain text
+
+    // Example 4: Prepending an element node
+    let h3 = document.createElement('h3')
+    h3.textContent = 'Programming Languages'
+    ul.prepend(h3) // Prepend h3 as the first child
+  </script>
+
+</body>
+
+</html>
