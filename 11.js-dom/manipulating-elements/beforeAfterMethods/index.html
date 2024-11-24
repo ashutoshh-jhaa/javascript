@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>before() and after() Methods</title>
+  <style>
+    button {
+      padding: 1px;
+      background-color: peachpuff;
+      color: white;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main">
+    <p>Paragraph 1</p>
+  </div>
+  <ul>
+    <li>Angular</li>
+    <li>Vue</li>
+  </ul>
+
+  <button>Click Here</button>
+
+  <script>
+    /**
+     * Demonstration of `before()` and `after()` methods:
+     * - `before()` inserts content (text, elements, or multiple nodes) immediately before the selected element.
+     * - `after()` inserts content immediately after the selected element.
+     */
+
+    // Example 1: Insert an element before a paragraph
+    let main = document.querySelector('p');
+    let heading = document.createElement('h1');
+    heading.innerText = 'Hi there';
+    main.before(heading); // Adds the heading before the <p>
+
+    // Example 2: Insert multiple list items before the first item in an unordered list
+    let ul = document.querySelector('ul');
+    const libs = ['React', 'Meteor', 'Polymer'];
+    const items = libs.map((lib) => {
+      const item = document.createElement('li');
+      item.innerText = lib;
+      return item;
+    });
+    ul.firstChild.before(...items); // Adds the new <li> items before the first child of <ul>
+
+    // Example 3: Insert text before a button
+    let button = document.querySelector('button');
+    button.before("👋"); // Adds text before the button
+
+    // Demonstration of `after()` method:
+    // Example 1: Insert text after the paragraph
+    main.after(" - End of paragraph");
+
+    // Example 2: Insert an element after the unordered list
+    let footer = document.createElement('div');
+    footer.innerText = "This is the footer";
+    ul.after(footer);
+
+    // Example 3: Insert emoji after the button
+    button.after(" 🚀");
+  </script>
+</body>
+
+</html>
