@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>replace & remove child</title>
+</head>
+
+<body>
+
+  <ul id="menu">
+    <li>value1</li>
+    <li>value2</li>
+    <li>value3</li>
+    <li>value4</li>
+    <li>value5</li>
+  </ul>
+
+  <script>
+    /**
+     * replaceChild(newChild, oldChild):
+     * - Replaces an existing child node (`oldChild`) with a new node (`newChild`).
+     * - Syntax: parentNode.replaceChild(newChild, oldChild)
+     */
+    let menu = document.getElementById('menu'); // Corrected from `getElementById`
+
+    let li = document.createElement('li'); // Create a new <li> element
+    li.textContent = 'newValue'; // Set the text content of the new <li>
+
+    // Replace the first child of <ul> with the new <li>
+    menu.replaceChild(li, menu.firstElementChild);
+
+    /**
+     * removeChild(childNode):
+     * - Removes a specified child node from the parent node.
+     * - Syntax: parentNode.removeChild(childNode)
+     */
+
+    // Remove the last child element of <ul>
+    menu.removeChild(menu.lastElementChild); // Corrected from `menu.lastElement`
+
+    /**
+     * To remove all child nodes:
+     * - Use a loop or set `innerHTML` to an empty string.
+     */
+
+    // Example 1: Using a loop
+    /* 
+    while (menu.firstChild) {
+      menu.removeChild(menu.firstChild);
+    }
+    */
+
+    // Example 2: Using innerHTML
+    /* 
+    menu.innerHTML = '';
+    */
+  </script>
+</body>
+
+</html>
