@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Understanding innerHTML, innerText, and textContent</title>
+</head>
+
+<body>
+  <ul id="menu">
+    <li>value1
+      <p style="display: none;">this is ashutosh</p>
+    </li>
+    <li>value2</li>
+    <li>value3</li>
+  </ul>
+
+  <script>
+    let parent = document.querySelector('#menu');
+
+    // Logs the full HTML structure inside the element
+    console.log('parent.innerHTML:', parent.innerHTML);
+    /*
+     * innerHTML:
+     * - Retrieves or sets the entire HTML structure inside an element.
+     * - Parses the HTML and renders it (if valid HTML is provided when setting).
+     * - Includes all child elements, including those with "display: none;".
+     */
+
+    // Logs only visible text content inside the element
+    console.log('parent.innerText:', parent.innerText);
+    /*
+     * innerText:
+     * - Retrieves or sets only the visible text inside the element.
+     * - Excludes elements styled with "display: none;".
+     * - Takes CSS into account, causing a reflow, which is computationally expensive.
+     */
+
+    // Logs all text content inside the element (ignores CSS styling)
+    console.log('parent.textContent:', parent.textContent);
+    /*
+     * textContent:
+     * - Retrieves or sets all the text content of an element, including hidden elements.
+     * - Faster than innerText since it doesn't consider CSS styles or cause reflow.
+     */
+
+    // Modifying the content using textContent
+    parent.textContent = '<h2>hello there</h2>';
+    console.log('Updated parent.textContent:', parent.textContent);
+    /*
+     * - Setting textContent replaces all child elements with plain text.
+     * - Does not parse HTML, so "<h2>hello there</h2>" is displayed as plain text.
+     */
+
+    // Important Note: Appending <script> tags with innerHTML doesn't execute the script
+    /*
+     * Why?
+     * - innerHTML adds the script tag to the DOM but does not execute it.
+     * - Browser security features prevent script execution to avoid XSS attacks.
+     * - If you need to add and execute a script dynamically, use createElement and appendChild:
+     *   Example:
+     *     let script = document.createElement('script');
+     *     script.src = 'example.js';
+     *     document.body.appendChild(script);
+     */
+  </script>
+</body>
+
+</html>
