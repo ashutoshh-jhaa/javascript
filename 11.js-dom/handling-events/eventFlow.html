@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event Flow in JavaScript</title>
+</head>
+
+<body>
+  <div id="container">
+    <!-- 
+      When you click the button, the click event occurs not only on the button 
+      but also on its ancestors like the container (div), body, and document. 
+    -->
+    <!-- There are two main event models:
+         1. Event Bubbling: Event starts at the most specific element and propagates upwards.
+         2. Event Capturing: Event starts at the least specific element (like `document`) 
+            and propagates downwards to the target element. -->
+    <button id="btn">Click Me</button>
+
+    <!-- Example of an anchor tag to demonstrate preventing default behavior -->
+    <a href="https://google.com">Visit Google.com</a>
+  </div>
+
+  <script>
+    // Get references to DOM elements
+    const btn = document.querySelector('#btn');
+    const link = document.querySelector('a');
+
+    // Add click event listener to the button
+    btn.addEventListener('click', (event) => {
+      alert('Hey, the button was clicked!');
+
+      // Stop the event from propagating to ancestor elements
+      event.stopPropagation();
+
+      // Log the type of event
+      console.log(`Event Type: ${event.type}`);
+    });
+
+    // Add click event listener to the body
+    document.body.addEventListener('click', () => {
+      console.log('Event propagated to the body.');
+    });
+
+    // Add click event listener to the link
+    link.addEventListener('click', (event) => {
+      // Prevent the default behavior of the link (navigating to the href)
+      event.preventDefault();
+
+      // Display an alert message
+      alert("I won't let you visit Google.com!");
+    });
+  </script>
+</body>
+
+</html>
