@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Remove Attribute Example</title>
+</head>
+
+<body>
+  <a href="https://google.com" target="_blank" id="google">Visit Google</a>
+
+  <button id="btn" class="btnOne" disabled>Click Here</button>
+
+  <script>
+    let link = document.querySelector('a');
+
+    // Remove the 'target' attribute from the link
+    // This prevents the link from opening in a new tab
+    link.removeAttribute('target');
+
+    let btn = document.querySelector('#btn');
+
+    // Trying to set 'disabled' attribute to false using setAttribute
+    // NOTE: Even 'disabled="false"' keeps the button disabled
+    // btn.setAttribute('disabled', 'false');
+
+    // Correct way to enable the button is to remove the 'disabled' attribute
+    btn.removeAttribute('disabled');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>hasAttribute</title>
+</head>
+
+<body>
+  <a href="https://google.com" target="_blank" id="google">Visit Google</a>
+
+  <button id="btn" class="btnOne" disabled>Click Here</button>
+
+  <script>
+    let link = document.querySelector('a');
+    console.log(link.hasAttribute('target'))//true
+    console.log(link.hasAttribute('name'))//false
+
+    let btn = document.querySelector('#btn');
+    console.log(link.hasAttribute('disabled'))//true
+  </script>
+</body>
+
+</html>
