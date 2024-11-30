@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyboard Events Showcase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #input-box {
+      width: 300px;
+      height: 40px;
+      margin: 0 auto;
+      border: 2px solid #333;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    #event-details {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Keyboard Events in JavaScript</h1>
+  <p>Type in the box below to see various keyboard events in action!</p>
+
+  <input id="input-box" type="text" placeholder="Type here..." autofocus/>
+
+  <div id="event-details">Event: None</div>
+
+  <script>
+    const inputBox = document.getElementById('input-box');
+    const eventDetails = document.getElementById('event-details');
+
+    // Helper function to display event details
+    const showEventDetails = (event) => {
+      const { type, key, code, shiftKey, ctrlKey, altKey } = event;
+      console.log(`${type} event triggered`);
+      eventDetails.innerHTML = `
+        Event: ${type}<br>
+        Key: ${key}<br>
+        Code: ${code}<br>
+        Shift: ${shiftKey}<br>
+        Ctrl: ${ctrlKey}<br>
+        Alt: ${altKey}
+      `;
+    };
+
+    // Register all keyboard events
+    inputBox.addEventListener('keydown', showEventDetails);  // Key is pressed
+    inputBox.addEventListener('keypress', showEventDetails); // Key generates a character (deprecated but still works)
+    inputBox.addEventListener('keyup', showEventDetails);    // Key is released
+  </script>
+</body>
+
+</html>
