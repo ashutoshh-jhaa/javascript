@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Events Showcase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #event-box {
+      width: 300px;
+      height: 200px;
+      margin: 0 auto;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      line-height: 200px;
+      text-align: center;
+    }
+
+    #event-name {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Mouse Events in JavaScript</h1>
+  <p>Interact with the box below to see various mouse events in action!</p>
+
+  <div id="event-box">
+    Hover, Click, Scroll, Drag, etc.
+  </div>
+  <div id="event-name">Event: None</div>
+
+  <script>
+    const eventBox = document.getElementById('event-box');
+    const eventName = document.getElementById('event-name');
+
+    // Helper function to display the event name
+    const showEvent = (event) => {
+      console.log(`${event.type} event triggered`);
+      eventName.textContent = `Event: ${event.type}`;
+    };
+
+    // Register all mouse events
+    eventBox.addEventListener('click', showEvent);        // Click
+    eventBox.addEventListener('dblclick', showEvent);     // Double Click
+    eventBox.addEventListener('mousedown', showEvent);    // Mouse Down
+    eventBox.addEventListener('mouseup', showEvent);      // Mouse Up
+    eventBox.addEventListener('mouseenter', showEvent);   // Mouse Enter
+    eventBox.addEventListener('mouseleave', showEvent);   // Mouse Leave
+    eventBox.addEventListener('mouseover', showEvent);    // Mouse Over
+    eventBox.addEventListener('mouseout', showEvent);     // Mouse Out
+    eventBox.addEventListener('mousemove', showEvent);    // Mouse Move
+    eventBox.addEventListener('contextmenu', showEvent);  // Right Click
+
+    // Register scrolling events on the entire document
+    document.addEventListener('wheel', (event) => {
+      console.log(`${event.type} event triggered`);
+      eventName.textContent = `Event: ${event.type}`;
+    });
+
+    // Register drag and drop events
+    eventBox.addEventListener('dragstart', showEvent);    // Drag Start
+    eventBox.addEventListener('drag', showEvent);         // Drag
+    eventBox.addEventListener('dragend', showEvent);      // Drag End
+    eventBox.addEventListener('dragover', showEvent);     // Drag Over
+    eventBox.addEventListener('drop', showEvent);         // Drop
+  </script>
+</body>
+
+</html>
