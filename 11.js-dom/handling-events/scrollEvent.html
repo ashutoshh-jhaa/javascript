@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Event Showcase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    #scroll-indicator {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: #fff;
+      border: 1px solid #ddd;
+      color: #333;
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 2;
+    }
+
+    #content {
+      height: 2000px;
+      padding: 20px;
+    }
+
+    #scrollable-box {
+      width: 80%;
+      margin: 30px auto;
+      height: 300px;
+      overflow-y: scroll;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    #inner-scroll-indicator {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      padding: 5px;
+      border-bottom: 1px solid #ddd;
+      font-size: 14px;
+      z-index: 1;
+    }
+
+    #scrollable-content {
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="scroll-indicator">Scroll Position: 0px</div>
+
+  <div id="content">
+    <h1 style="text-align: center;">Scroll Event Showcase</h1>
+    <p style="text-align: center;">Scroll the page or the box below to see the scroll event in action.</p>
+
+    <div id="scrollable-box">
+      <div id="scrollable-content">
+        <div id="inner-scroll-indicator">Scroll Position: 0px</div>
+        <p>Try scrolling this box!</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const scrollIndicator = document.getElementById('scroll-indicator');
+    const scrollableBox = document.getElementById('scrollable-box');
+    const innerScrollIndicator = document.getElementById('inner-scroll-indicator')
+
+    // Track scrolling on the page (document)
+    window.addEventListener('scroll', () => {
+      //scrollY is used only with window
+      const scrollY = window.scrollY;
+      scrollIndicator.textContent = `Scroll Position: ${scrollY}px`;
+    });
+
+    // Track scrolling within the scrollable box
+    scrollableBox.addEventListener('scroll', () => {
+      //scrollTop can be used for any scrollable element
+      const scrollTop = scrollableBox.scrollTop;
+      innerScrollIndicator.textContent = `Scroll Position: ${scrollTop}px`
+      console.log(`Scrollable Box Scroll Position: ${scrollTop}px`);
+    });
+  </script>
+
+</body>
+
+</html>
