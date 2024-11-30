@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page Load Events</title>
+</head>
+
+<body>
+
+  <script>
+    // Fires when the DOM is fully constructed (HTML parsed).
+    // Does NOT wait for stylesheets, images, or other external resources to load.
+    addEventListener('DOMContentLoaded', () => {
+      console.log('DOM content loaded');
+    });
+
+    // Fires when the entire page (including all assets like images and styles) is fully loaded.
+    addEventListener('load', () => {
+      console.log('Page was successfully loaded');
+    });
+
+    // Fires when the user attempts to leave the page.
+    // Used to trigger confirmation dialogs or perform cleanup.
+    addEventListener('beforeunload', (event) => {
+      event.preventDefault(); // Prevents immediate navigation
+      // Setting event.returnValue enables the browser's confirmation dialog.
+      // NOTE: Custom messages like the one below are ignored in modern browsers.
+      // event.returnValue = "Hi there! Wanna leave me alone? ;)";
+
+      // Forcing the confirmation dialog with an empty string.
+      // event.returnValue = ""; 
+    });
+
+    // Unload event: Fires when the page is being unloaded (closed, refreshed, or navigated away).
+    addEventListener('unload', () => {
+      // Example: Sending analytics data before the page unloads.
+      console.log('Sending analytics data...');
+    });
+  </script>
+
+</body>
+
+</html>
